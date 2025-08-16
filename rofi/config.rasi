@@ -1,0 +1,97 @@
+configuration {
+	drun-display-format: "{icon} {name}";
+	show-icons: true;
+	modi: "drun,calc,emoji,latex:~/.config/rofi/latex-mode.sh,todo:~/.config/rofi/todo-mode.sh,russian:~/.config/rofi/russian-mode.sh,clipboard:~/.config/rofi/clipboard-mode.sh";
+	show: "drun";
+
+    calc {
+        no-bold: false;
+        terse: true;
+        no-history: false;
+        no-persist-history: false;
+        automatic-save-to-history: true;
+        calc-command-history: true;
+        calc-error-color: "Red";
+        calc-command: "notify-send {result}";
+        hint-result: "Result: ";
+        hint-welcome: "Awaiting input...";
+    }
+}
+
+@theme "/dev/null"
+
+* {
+	bg: #282828;
+	bg-sel: #3c3836;
+	fg: #a89984;
+	fg-sel: #458588;
+
+	background-color: @bg;
+	text-color: @fg;
+
+	border: 0;
+	margin: 0;
+	padding: 0;
+	spacing: 0;
+}
+
+window {
+	width: 50%;
+	height: 46%;
+	border: 2;
+	border-radius: 10;
+	border-color: @fg;
+}
+
+element {
+	padding: 12;
+	text-color: @fg;
+}
+
+element selected {
+	background-color: @bg-sel;
+	text-color: @fg-sel;
+}
+
+element-text {
+	background-color: inherit;
+	text-color: inherit;
+	vertical-align: 0.5;
+}
+
+element-icon {
+	background-color: transparent;
+	size: 30;
+}
+
+message {
+    padding: 12;
+}
+
+entry {
+	background-color: @bg;
+	text-color: @fg;
+	padding: 12;
+}
+
+inputbar {
+	children: [prompt, entry];
+}
+
+listview {
+	background-color: @bg;
+	columns: 1;
+	lines: 8;
+}
+
+mainbox {
+	background-color: @bg;
+	children: [inputbar, message, listview];
+}
+
+prompt {
+	background-color: @bg;
+	text-color: @fg;
+	enabled: true;
+	padding: 12 0 0 12;
+}

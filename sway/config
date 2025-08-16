@@ -40,7 +40,7 @@ set $urgent #b8bb26
 #####################################################################################
 
 # Wallpaper
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/Wallpapers/Arch_Gruvbox.png fill
 
 #####################################################################################
 ### Idle configuration
@@ -76,9 +76,6 @@ input type:keyboard {
 
     # Kill focused window
     bindsym $mod+Shift+q kill
-
-    # Start application launcher
-    bindsym $mod+d exec $menu
 
 	# Floating modifier
     floating_modifier $mod normal
@@ -224,19 +221,31 @@ bindsym $mod+r mode "resize"
 	bindsym $mod+Shift+F5 exec "swaymsg opacity minus 0.01"
 	bindsym $mod+Shift+F6 exec "swaymsg opacity plus 0.01"
 
+# Rofi:
+
+	bindsym $mod+d exec $menu
+	bindsym Alt+space exec $menu
+	bindsym Alt+c exec "rofi -show calc"
+	bindsym Alt+e exec "rofi -show emoji"
+	bindsym Alt+l exec "rofi -show latex"
+	bindsym Alt+t exec "rofi -show todo"
+	bindsym Alt+r exec "rofi -show russian"
+	bindsym Alt+v exec "rofi -show clipboard"
+
 # Application Shortcuts:
 
-	bindsym $mod+Shift+f exec dolphin
+# ...
 
-
-# Status Bar:
+#####################################################################################
+### Status Bar
+#####################################################################################
 
 bar {
 	swaybar_command waybar
 }
 
 #####################################################################################
-### Colors
+### Colors & Theme
 #####################################################################################
 
 # border - border around titlebar
@@ -249,6 +258,22 @@ client.focused          $focused    $focused    $light   $focused    $focused
 client.focused_inactive $inactive   $inactive   $light   $inactive   $inactive
 client.unfocused        $unfocused  $unfocused  $light  $unfocused  $unfocused
 client.urgent           $urgent     $urgent     $light  $urgent     $urgent
+
+# Window gaps
+gaps inner 7
+gaps outer 4
+
+# Window borders
+default_border pixel 1
+smart_borders no
+
+# GTK theme and cursor
+set $gnome_schema org.gnome.desktop.interface
+exec_always {
+	gsettings set $gnome_schema gtk-theme "Adwaita-dark"
+	gsettings set $gnome_schema color-scheme "prefer-dark"
+	gsettings set $gnome_schema "Volantes"
+}
 
 #####################################################################################
 ### Exit Mode
@@ -269,6 +294,13 @@ mode $exit {
 }
 
 bindsym --to-code $mod+x mode $exit
+
+#####################################################################################
+### Autostart
+#####################################################################################
+
+exec wl-paste --watch cliphist store
+exec_always autotiling
 
 #####################################################################################
 ### Other
