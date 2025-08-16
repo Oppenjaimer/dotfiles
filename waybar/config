@@ -1,0 +1,33 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 0,
+	"margin": "0 0 0 0",
+    "modules-left": [
+        "sway/workspaces",
+		"sway/scratchpad",
+		"tray",
+        "sway/mode",
+		"mpd#2",
+		"mpd#3",
+		"mpd#4",
+		"mpd"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+		"backlight",
+        "pulseaudio",
+		"network",
+        "temperature",
+		"cpu",
+		"memory",
+		"battery",
+		"idle_inhibitor",
+    ],
+	
+	// Load modules
+	"include": ["~/.config/waybar/modules.json"]
+}

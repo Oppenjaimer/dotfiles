@@ -1,0 +1,247 @@
+@import "colors.css";
+
+* {
+    font-family: JetBrains Mono, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+	border: 0;
+	border-radius: 0;
+	padding: 0 0;
+}
+
+window#waybar {
+    background-color: @bg0;
+	color: @fg0;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+	box-shadow: inset 0 -3px transparent;
+}
+
+button:hover {
+	background: inherit;
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    color: @fg0;
+}
+
+#workspaces button:hover {
+	background-color: @bg1;
+}
+
+#workspaces button.focused {
+    background-color: @green;
+	color: @bg0_h;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
+#mode {
+    background-color: @bg1;
+    box-shadow: inset 0 -2px @fg1;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+    color: @fg0;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: @bg0;
+	font-size: 18px;
+}
+
+#battery {
+    background-color: @fg0;
+    color: @bg0_h;
+}
+
+#battery.charging, #battery.plugged {
+	background-color: @green;
+    color: @bg0_h;
+}
+
+@keyframes blink {
+	to {
+		background-color: @fg0;
+		color: @bg0_h;
+	}
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @bg0;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: @red;
+    color: @bg0_h;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: @blue;
+    color: @bg0_h;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: @green;
+    color: @bg0_h;
+}
+
+label:focus {
+    background-color: @bg0;
+}
+
+#cpu {
+    background-color: @aqua;
+    color: @bg0_h;
+}
+
+#memory {
+    background-color: @purple;
+	color: @bg0_h;
+}
+
+#disk {
+    background-color: @purple_light;
+	color: @bg0_h;
+}
+
+#backlight {
+    background-color: @blue_light;
+	color: @bg0_h;
+}
+
+#network {
+    background-color: @blue;
+	color: @bg0_h;
+}
+
+#network.disconnected {
+    background-color: @red_light;
+	color: @bg0_h;
+}
+
+#pulseaudio {
+    background-color: @yellow;
+    color: @bg0_h;
+}
+
+#pulseaudio.muted {
+    background-color: @gray;
+	color: @bg0_h;
+}
+
+#temperature {
+    background-color: @orange;
+	color: @bg0_h;
+}
+
+#temperature.critical {
+    background-color: @red_light;
+	color: @bg0_h;
+}
+
+#tray {
+    background-color: @aqua_light;
+	color: @bg0_h;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red_light;
+}
+
+#idle_inhibitor {
+    background-color: @bg2;
+	color: @fg0;
+}
+
+#idle_inhibitor.activated {
+    background-color: @fg2;
+    color: @bg0_0;
+}
+
+#mpd {
+    background-color: @yellow_light;
+    color: @bg0_h;
+}
+
+#mpd.disconnected {
+    background-color: @red_light;
+	color: @bg0_h;
+}
+
+#mpd.stopped {
+    background-color: @gray;
+	color: @bg0_h;
+}
+
+#mpd.paused {
+    background-color: @aqua_light;
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
