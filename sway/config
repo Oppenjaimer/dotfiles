@@ -46,9 +46,11 @@ output * bg ~/Pictures/Wallpapers/Arch_Gruvbox.png fill
 ### Idle configuration
 #####################################################################################
 
-exec swayidle -w \
-	timeout 30 'swaymsg "outpt * power off"' resume 'swaymsg "output * power on"' \
-	before-sleep 'swaylock -f -c 000000'
+set $lock "swaylock -f -e -c 00000000"
+
+exec_always swayidle -w \
+	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	before-sleep $lock
 
 #####################################################################################
 ### Input configuration
@@ -306,6 +308,10 @@ exec_always autotiling
 ### Other
 #####################################################################################
 
+# Start polkit
 exec lxqt-policykit-agent
+
+# Turn off mic mute LED
+exec "echo 0 | sudo tee /sys/class/leds/platform::micmute/brightness"
 
 include /etc/sway/config.d/*
