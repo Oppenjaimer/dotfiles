@@ -11,4 +11,6 @@ A collection of my personal dotfiles.
 * **Terminal**: foot
 * **Launcher**: rofi
 * **Browser**: Firefox
-
+* **File manager**: Yazi
+* **Image viewer**: imv
+* **Document viewer**: zathura

@@ -236,7 +236,7 @@ bindsym $mod+r mode "resize"
 
 # Application Shortcuts:
 
-# ...
+	bindsym $mod+Shift+f exec "foot yazi"
 
 #####################################################################################
 ### Status Bar
@@ -269,12 +269,24 @@ gaps outer 4
 default_border pixel 1
 smart_borders no
 
-# GTK theme and cursor
+# Cursor theme
+set $cursor_theme "Bibata-Modern-Classic"
+set $cursor_size 24
+seat seat0 xcursor_theme $cursor_theme $cursor_size
+exec_always {
+	export XCURSOR_THEME=$cursor_theme
+	export XCURSOR_SIZE=$cursor_size
+}
+
+# GTK theme
 set $gnome_schema org.gnome.desktop.interface
 exec_always {
-	gsettings set $gnome_schema gtk-theme "Adwaita-dark"
+	gsettings set $gnome_schema gtk-theme "Gruvbox-Dark"
+	gsettings set $gnome_schema icon-theme "Papirus"
 	gsettings set $gnome_schema color-scheme "prefer-dark"
-	gsettings set $gnome_schema "Volantes"
+	gsettings set $gnome_schema "Bibata-Modern-Classic"
+
+	export GTK_THEME=Gruvbox-Dark
 }
 
 #####################################################################################
@@ -310,8 +322,5 @@ exec_always autotiling
 
 # Start polkit
 exec lxqt-policykit-agent
-
-# Turn off mic mute LED
-exec "echo 0 | sudo tee /sys/class/leds/platform::micmute/brightness"
 
 include /etc/sway/config.d/*

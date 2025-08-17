@@ -1,0 +1,52 @@
+[mgr]
+show_hidden = true
+
+[preview]
+tab_size = 4
+
+[opener]
+edit = [
+	{ run = 'nano "$1"', desc = "nano", block = true, for = "unix" },
+]
+pdff = [
+	{ run = 'zathura "$@"', desc = "zathura", block = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+]
+reveal = [
+	{ run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+]
+extract = [
+	{ run = 'unzip "$1"', desc = "Extract here", for = "unix" },
+]
+play = [
+	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
+]
+
+[open]
+rules = [
+	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+
+	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+
+	{ mime = "text/*",  use = [ "edit", "reveal" ] },
+	{ mime = "image/*", use = [ "open", "reveal" ] },
+	{ mime = "video/*", use = [ "play", "reveal" ] },
+	{ mime = "audio/*", use = [ "play", "reveal" ] },
+	{ mime = "application/pdf", use = [ "pdff", "reveal" ] },
+
+	{ mime = "application/zip", use = [ "extract", "reveal" ] },
+	{ mime = "application/gzip", use = [ "extract", "reveal" ] },
+	{ mime = "application/x-tar", use = [ "extract", "reveal" ] },
+	{ mime = "application/x-bzip", use = [ "extract", "reveal" ] },
+	{ mime = "application/x-bzip2", use = [ "extract", "reveal" ] },
+	{ mime = "application/x-7z-compressed", use = [ "extract", "reveal" ] },
+	{ mime = "application/x-rar", use = [ "extract", "reveal" ] },
+	{ mime = "application/xz", use = [ "extract", "reveal" ] },
+
+	# Treat empty files as editable
+    { name = "*", size = 0, use = [ "edit", "reveal" ] },
+
+	{ mime = "*", use = [ "open", "reveal" ] },
+]
