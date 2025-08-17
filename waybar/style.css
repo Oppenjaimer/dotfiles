@@ -37,6 +37,7 @@ button:hover {
 
 #workspaces button:hover {
 	background-color: @bg1;
+	color: @green;
 }
 
 #workspaces button.focused {

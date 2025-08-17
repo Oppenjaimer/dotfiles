@@ -3,6 +3,7 @@ configuration {
 	show-icons: true;
 	modi: "drun,calc,emoji,latex:~/.config/rofi/latex-mode.sh,todo:~/.config/rofi/todo-mode.sh,russian:~/.config/rofi/russian-mode.sh,clipboard:~/.config/rofi/clipboard-mode.sh";
 	show: "drun";
+	font: "JetBrains Mono 12";
 
     calc {
         no-bold: false;
@@ -23,8 +24,8 @@ configuration {
 * {
 	bg: #282828;
 	bg-sel: #3c3836;
-	fg: #a89984;
-	fg-sel: #458588;
+	fg: #d5c4a1;
+	fg-sel: #98971a;
 
 	background-color: @bg;
 	text-color: @fg;
@@ -38,8 +39,8 @@ configuration {
 window {
 	width: 50%;
 	height: 46%;
-	border: 2;
-	border-radius: 10;
+	border: 1;
+	border-radius: 4;
 	border-color: @fg;
 }
 
@@ -95,3 +96,4 @@ prompt {
 	enabled: true;
 	padding: 12 0 0 12;
 }
+
