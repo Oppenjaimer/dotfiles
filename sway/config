@@ -276,6 +276,9 @@ seat seat0 xcursor_theme $cursor_theme $cursor_size
 exec_always {
 	export XCURSOR_THEME=$cursor_theme
 	export XCURSOR_SIZE=$cursor_size
+
+	# Apply GTK3 to LibreOffice
+	export SAL_USE_VCLPLUGIN=gtk3
 }
 
 # GTK theme
@@ -290,12 +293,34 @@ exec_always {
 }
 
 #####################################################################################
+### Screenshot Mode
+#####################################################################################
+
+set $screenshot "screenshot: [1] select save, [2] whole save, [3] select copy, [4] whole copy"
+
+mode $screenshot {
+    bindsym  {
+		1 exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +"%Y%m%d%H%M%S").png, mode "default"
+    	2 exec grim ~/Pictures/Screenshots/$(date +"%Y%m%d%H%M%S").png, mode "default"
+    	3 exec grim -g "$(slurp)" - | wl-copy, mode "default"
+    	4 exec grim - | wl-copy, mode "default"
+
+	    Return mode "default"
+    	Escape mode "default"
+    	$mod+Shift+s mode "default"
+	}
+}
+
+bindsym $mod+Shift+s mode $screenshot
+
+#####################################################################################
 ### Exit Mode
 #####################################################################################
 
 set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
+
 mode $exit {
-    bindsym --to-code {
+    bindsym {
         s exec systemctl suspend, mode "default"
         p exec systemctl poweroff
         r exec systemctl reboot
@@ -307,7 +332,7 @@ mode $exit {
     }
 }
 
-bindsym --to-code $mod+x mode $exit
+bindsym $mod+x mode $exit
 
 #####################################################################################
 ### Autostart
