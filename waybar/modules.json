@@ -55,8 +55,9 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+         "icon-size": 21,
         "spacing": 10,
+		"show-passive-items": false
     },
 	"clock": {
 		"format": "{:%A, %B %d | %H:%M}",
@@ -151,6 +152,17 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+	"custom/spotify": {
+		"format": "  ",
+		"tooltip-format": "{text}",
+		"return-type": "json",
+		"on-click": "playerctl play-pause",
+		"on-click-middle": "playerctl previous",
+		"on-click-right": "playerctl next",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous",
+		"exec": "python ~/.config/waybar/mediaplayer.py --player spotify"
+	},
     "custom/power": {
         "format" : "⏻ ",
 		"tooltip": false,

@@ -197,8 +197,8 @@ label:focus {
 }
 
 #tray {
-    background-color: @aqua_light;
-	color: @bg0_h;
+    background-color: @bg0;
+	color: @fg0;
 }
 
 #tray > .passive {
@@ -245,4 +245,9 @@ label:focus {
 
 #scratchpad.empty {
 	background-color: transparent;
+}
+
+#custom-spotify {
+	background-color: @aqua_light;
+	color: @bg0_h;
 }

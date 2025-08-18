@@ -9,7 +9,7 @@
 		"sway/scratchpad",
 		"tray",
         "sway/mode",
-		"mpd"
+		"custom/spotify"
     ],
     "modules-center": [
         "clock"
