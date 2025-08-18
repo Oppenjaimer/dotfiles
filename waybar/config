@@ -9,9 +9,6 @@
 		"sway/scratchpad",
 		"tray",
         "sway/mode",
-		"mpd#2",
-		"mpd#3",
-		"mpd#4",
 		"mpd"
     ],
     "modules-center": [
