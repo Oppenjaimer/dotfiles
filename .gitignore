@@ -8,3 +8,6 @@ go/
 htop/
 libreoffice/
 spotify/
+
+user-dirs.dirs
+user-dirs.locale
