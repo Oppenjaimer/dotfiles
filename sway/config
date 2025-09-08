@@ -15,6 +15,7 @@ font pango: JetBrains Mono Medium 12
 for_window [app_id="firefox"] 	move to workspace 2, workspace 2, focus
 for_window [app_id="code"]		move to workspace 3, workspace 3, focus
 for_window [app_id="spotify"]	move to workspace 4, workspace 4, focus
+for_window [class="Stremio"]	move to workspace 4, workspace 4, focus
 for_window [class="steam"]		move to workspace 6, workspace 6, focus
 
 #####################################################################################
