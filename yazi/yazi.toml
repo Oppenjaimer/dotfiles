@@ -9,7 +9,7 @@ edit = [
 	{ run = 'nano "$1"', desc = "nano", block = true, for = "unix" },
 ]
 pdff = [
-	{ run = 'zathura "$@"', desc = "zathura", block = true, for = "unix" },
+	{ run = 'setsid -f zathura "$@"', desc = "zathura", block = true, for = "unix" },
 ]
 open = [
 	{ run = 'xdg-open "$1"', desc = "Open", for = "linux" },
@@ -23,18 +23,24 @@ extract = [
 play = [
 	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
 ]
+writer = [
+	{ run = 'libreoffice --writer "$@"', desc = "Open in LibreOffice Writer", for = "unix" }
+]
 
 [open]
 rules = [
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 
-	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+	{ mime = "inode/x-empty", use = [ "edit", "open" ] },
 
-	{ mime = "text/*",  use = [ "edit", "reveal" ] },
-	{ mime = "image/*", use = [ "open", "reveal" ] },
-	{ mime = "video/*", use = [ "play", "reveal" ] },
-	{ mime = "audio/*", use = [ "play", "reveal" ] },
-	{ mime = "application/pdf", use = [ "pdff", "reveal" ] },
+	{ mime = "text/*",  use = [ "edit", "open" ] },
+	{ mime = "image/*", use = [ "open", "open" ] },
+	{ mime = "video/*", use = [ "play", "open" ] },
+	{ mime = "audio/*", use = [ "play", "open" ] },
+	{ mime = "application/pdf", use = [ "pdff", "open" ] },
+
+	{ name = "*.docx", use = [ "writer", "open" ] },
+	{ name = "*.odt", use = [ "writer", "open" ] },
 
 	{ mime = "application/zip", use = [ "extract", "reveal" ] },
 	{ mime = "application/gzip", use = [ "extract", "reveal" ] },

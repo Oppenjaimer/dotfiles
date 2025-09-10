@@ -9,6 +9,8 @@ htop/
 libreoffice/
 spotify/
 cat_installer/
+Electron/
 
 user-dirs.dirs
 user-dirs.locale
+QtProject.conf
