@@ -50,7 +50,7 @@ set $urgent #b8bb26
 #####################################################################################
 
 # Wallpaper
-output * bg ~/Pictures/Wallpapers/Arch_Gruvbox.png fill
+output * bg ~/Pictures/Wallpapers/gruvbox_astronaut.jpg fill
 
 #####################################################################################
 ### Idle Configuration
