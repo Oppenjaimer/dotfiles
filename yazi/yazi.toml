@@ -26,6 +26,9 @@ play = [
 writer = [
 	{ run = 'libreoffice --writer "$@"', desc = "Open in LibreOffice Writer", for = "unix" }
 ]
+calc = [
+	{ run = 'libreoffice --calc "$@"', desc = "Open in LibreOffice Calc", for = "unix" }
+]
 
 [open]
 rules = [
@@ -41,6 +44,7 @@ rules = [
 
 	{ name = "*.docx", use = [ "writer", "open" ] },
 	{ name = "*.odt", use = [ "writer", "open" ] },
+	{ name = "*.ods", use = [ "calc", "open" ] },
 
 	{ mime = "application/zip", use = [ "extract", "reveal" ] },
 	{ mime = "application/gzip", use = [ "extract", "reveal" ] },

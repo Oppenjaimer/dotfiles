@@ -131,3 +131,5 @@ aleph,ℵ
 hbar,ℏ
 ell,ℓ
 wp,℘
+
+degree,°
