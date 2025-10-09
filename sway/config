@@ -243,6 +243,7 @@ bindsym $mod+r mode "resize"
 	bindsym Alt+t exec "rofi -show todo"
 	bindsym Alt+r exec "rofi -show russian"
 	bindsym Alt+v exec "rofi -show clipboard"
+	bindsym Alt+w exec "rofi -show wifi"
 
 # Application Shortcuts:
 

@@ -1,7 +1,7 @@
 configuration {
 	drun-display-format: "{icon} {name}";
 	show-icons: true;
-	modi: "drun,calc,emoji,latex:~/.config/rofi/latex-mode.sh,todo:~/.config/rofi/todo-mode.sh,russian:~/.config/rofi/russian-mode.sh,clipboard:~/.config/rofi/clipboard-mode.sh";
+	modi: "drun,calc,emoji,latex:~/.config/rofi/latex-mode.sh,todo:~/.config/rofi/todo-mode.sh,russian:~/.config/rofi/russian-mode.sh,clipboard:~/.config/rofi/clipboard-mode.sh,wifi:~/.config/rofi/wifi-mode/iwdrofimenu.py";
 	show: "drun";
 	font: "JetBrains Mono 12";
 
