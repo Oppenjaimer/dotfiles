@@ -64,7 +64,8 @@ class RofiPasswordInput(RofiSimpleDialog):
     def __init__(self, ssid, prompt="Passphrase", message=None):
         entries = [{"caption": TEMPLATES["cancel"],
                     "info": "cmd#abort",
-                    "icon": ICONS["back"]
+                    #"icon": ICONS["back"]
+					"icon": None
                     }]
         if message is None:
             message = f"Please enter the passphrase for {ssid} and press enter."
@@ -86,11 +87,13 @@ class RofiConfirmDialog(RofiSimpleDialog):
                  abort_caption="Back", abort_info=""):
         entries = [{"caption": confirm_caption,
                     "info": confirm_info,
-                    "icon": ICONS["confirm"]
+                    #"icon": ICONS["confirm"]
+					"icon": None
                     },
                    {"caption": abort_caption,
                     "info": abort_info,
-                    "icon": ICONS["back"]
+                    #"icon": ICONS["back"]
+					"icon": None
                     }
                    ]
         super().__init__(prompt,
@@ -110,7 +113,8 @@ class RofiNoWifiDialog(RofiBasicDialog):
                          )
         self.set_option("urgent", "0")
         self.add_row(TEMPLATES["enable_wifi"],
-                     icon=ICONS["enable"],
+                     #icon=ICONS["enable"],
+					 icon=None,
                      info="cmd#unblockwifi",
                      meta=TEMPLATES["meta_enable"]
                      )
@@ -150,11 +154,13 @@ class RofiShowActiveConnection(RofiIWDDialog):
 
         # add menu items
         self.add_row(TEMPLATES["back"],
-                     icon=ICONS["back"]
+                     #icon=ICONS["back"]
+					 icon=None
                      )
         self.add_row(TEMPLATES["disconnect"],
                      info="cmd#iwd#disconnect",
-                     icon=ICONS["disconnect"]
+                     #icon=ICONS["disconnect"]
+					 icon=None
                      )
         self.add_separator()
 
@@ -172,7 +178,8 @@ class RofiShowActiveConnection(RofiIWDDialog):
         self.add_separator()
         self.add_row(TEMPLATES["discard"],
                      info="cmd#iwd#forget",
-                     icon=ICONS["trash"]
+                     #icon=ICONS["trash"]
+					 icon=None
                      )
 
 
@@ -215,12 +222,14 @@ class RofiNetworkList(RofiIWDDialog):
         if not self.combi_mode:
             self.add_row(TEMPLATES["scan"],
                          info="cmd#iwd#scan",
-                         icon=ICONS["scan"],
+                         #icon=ICONS["scan"],
+						 icon=None,
                          meta=TEMPLATES["meta_scan"]
                          )
             self.add_row(TEMPLATES["refresh"],
                          info="cmd#refresh",
-                         icon=ICONS["refresh"],
+                         #icon=ICONS["refresh"],
+						 icon=None,
                          meta=TEMPLATES["meta_refresh"]
                          )
             self.add_separator()
@@ -244,7 +253,8 @@ class RofiNetworkList(RofiIWDDialog):
         self.add_separator()
         self.add_row(TEMPLATES["disable_wifi"],
                      info="cmd#blockwifi",
-                     icon=ICONS["disable"],
+                     #icon=ICONS["disable"],
+					 icon=None,
                      meta=TEMPLATES["meta_disable"]
                      )
 
@@ -298,7 +308,8 @@ class RofiNetworkList(RofiIWDDialog):
         #    meta = meta + " " + TEMPLATES["meta_combi_mode"]
         self.add_row(text,
                      info=cmd,
-                     icon=self.choose_icon(nw),
+                     #icon=self.choose_icon(nw),
+					 icon=None,
                      meta=meta
                      )
 
