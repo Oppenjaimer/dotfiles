@@ -37,7 +37,7 @@ defaults = {
         "img_dir": root_dir + "res/icons",
         "img_subdir": "bright",
         "rofi_theme_file": root_dir + "res/style.rasi",
-        "show_separator": True,
+        "show_separator": False,
         "rfkill_cmd": "rfkill",
         },
     "templates": {
