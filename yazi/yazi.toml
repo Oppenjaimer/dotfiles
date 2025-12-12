@@ -45,6 +45,8 @@ rules = [
 	{ name = "*.docx", use = [ "writer", "open" ] },
 	{ name = "*.odt", use = [ "writer", "open" ] },
 	{ name = "*.ods", use = [ "calc", "open" ] },
+	{ name = "*.xls", use = [ "calc", "open" ] },
+	{ name = "*.xlsx", use = [ "calc", "open" ] },
 
 	{ mime = "application/zip", use = [ "extract", "reveal" ] },
 	{ mime = "application/gzip", use = [ "extract", "reveal" ] },
