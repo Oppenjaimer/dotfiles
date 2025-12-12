@@ -10,6 +10,7 @@ libreoffice/
 spotify/
 cat_installer/
 Electron/
+chromium/
 
 user-dirs.dirs
 user-dirs.locale
