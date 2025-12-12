@@ -1,0 +1,59 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "disable_ai": true,
+  "ensure_final_newline_on_save": false,
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "shell": {
+      "program": "fish"
+    }
+  },
+  "tabs": {
+    "git_status": false,
+    "file_icons": false
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_branch_icon": false
+  },
+  "close_on_file_delete": true,
+  "inlay_hints": {
+    "enabled": false
+  },
+  "format_on_save": "off",
+  "toolbar": {
+    "breadcrumbs": true
+  },
+  "minimap": {
+    "show": "auto"
+  },
+  "cursor_shape": "block",
+  "buffer_font_family": ".ZedMono",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": false,
+  "base_keymap": "VSCode",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark"
+  }
+}
